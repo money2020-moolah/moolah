@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import TransactionsScreen from '../screens/TransactionsScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -21,6 +22,20 @@ HomeStack.navigationOptions = {
           ? `ios-information-circle${focused ? '' : '-outline'}`
           : 'md-information-circle'
       }
+    />
+  ),
+};
+
+const TransactionsStack = createStackNavigator({
+  Transactions: TransactionsScreen,
+});
+
+TransactionsStack.navigationOptions = {
+  tabBarLabel: 'Transactions',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-swap${focused ? '' : '-outline'}` : 'md-swap'}
     />
   ),
 };
@@ -55,6 +70,7 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
+  TransactionsStack,
   LinksStack,
   SettingsStack,
 });
