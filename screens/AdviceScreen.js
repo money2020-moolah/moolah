@@ -30,9 +30,6 @@ export default class AdviceScreen extends React.Component {
   
     </ScrollView>
 
-
-
-
     );
   }
 }
