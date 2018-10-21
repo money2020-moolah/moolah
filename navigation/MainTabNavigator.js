@@ -4,9 +4,11 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import BudgetingScreen from '../screens/BudgetingScreen';
 import AdviceScreen from '../screens/AdviceScreen';
 import TransactionsScreen from '../screens/TransactionsScreen';
+import SvgUri from 'react-native-svg-uri';
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -15,13 +17,10 @@ const HomeStack = createStackNavigator({
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+    <SvgUri
+      width="24"
+      height="24"
+      source={require('../assets/images/home.svg')}
     />
   ),
 };
@@ -33,23 +32,25 @@ const TransactionsStack = createStackNavigator({
 TransactionsStack.navigationOptions = {
   tabBarLabel: 'Transactions',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-swap${focused ? '' : '-outline'}` : 'md-swap'}
+    <SvgUri
+      width="24"
+      height="24"
+      source={require('../assets/images/transactions.svg')}
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const BudgetingStack = createStackNavigator({
+  Budgeting: BudgetingScreen,
 });
 
-LinksStack.navigationOptions = {
+BudgetingStack.navigationOptions = {
   tabBarLabel: 'Budgeting',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+    <SvgUri
+      width="24"
+      height="24"
+      source={require('../assets/images/budget.svg')}
     />
   ),
 };
@@ -61,9 +62,10 @@ const AdviceStack = createStackNavigator({
 AdviceStack.navigationOptions = {
   tabBarLabel: 'Advice',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+    <SvgUri
+      width="24"
+      height="24"
+      source={require('../assets/images/advice.svg')}
     />
   ),
 };
@@ -71,6 +73,6 @@ AdviceStack.navigationOptions = {
 export default createBottomTabNavigator({
   HomeStack,
   TransactionsStack,
-  LinksStack,
+  BudgetingStack,
   AdviceStack,
 });
