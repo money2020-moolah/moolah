@@ -49,14 +49,14 @@ export default class TransactionsScreen extends React.Component {
         {
             this.state.transactions.map((transaction, index) => {
               return (
-                <View key={index} style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10, flexDirection: "row", borderLeftColor: transaction.baseType == 'CREDIT' ? '#7befb2' : '#f03434', borderLeftWidth: 10}} elevation={5}>
+                <View key={index} style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10, flexDirection: "row", borderLeftColor: transaction.baseType == 'CREDIT' ? '#7befb2' : '#ff9478', borderLeftWidth: 10}} elevation={5}>
                   <View style={{flexDirection: "row", justifyContent: "space-around"}}>
                     <View>
                       <Text style={{fontWeight: "bold"}}>{transaction.description.simple}</Text>
                       <Text>{transaction.category}</Text>
                     </View>
                     <View>
-                      <Text style={{color: transaction.baseType == 'CREDIT' ? '#7befb2' : '#f03434' }}>{transaction.baseType == 'CREDIT' ? '+' : '-'} ${transaction.amount.amount}</Text>
+                      <Text style={{color: transaction.baseType == 'CREDIT' ? '#7befb2' : '#ff9478' }}>{transaction.baseType == 'CREDIT' ? '+' : '-'} ${transaction.amount.amount}</Text>
                     </View>
                   </View>
                 </View>

@@ -30,7 +30,7 @@ export default class BudgetingScreen extends React.Component {
     return (
       <ScrollView style={styles.container}>
 
-        <View style={{flexDirection: "row", marginBottom : 20 }}>
+        <View style={{flexDirection: "row", marginBottom : 20 , marginTop: 20 }}>
           <PieChart
               style={ { height: 200, flex: 2 } }
               data={ pieData }
@@ -44,9 +44,10 @@ export default class BudgetingScreen extends React.Component {
                 flexWrap:'wrap',
                 height: 10,
                 width: 10,
-                backgroundColor: '#600080'
+                backgroundColor: '#600080',
+                marginTop: 7
               }}/>
-              <Text>Savings</Text>
+              <Text> Savings</Text>
             </View>
             <View  style={{
                 flexDirection: 'row'}}>
@@ -55,9 +56,10 @@ export default class BudgetingScreen extends React.Component {
                 flexDirection: 'row',
                 height: 10,
                 width: 10,
-                backgroundColor: '#9900cc'
+                backgroundColor: '#9900cc',
+                marginTop: 7
               }}/>
-              <Text>Food</Text>
+              <Text> Food</Text>
             </View>
             <View  style={{
                 flexDirection: 'row'}}>
@@ -66,9 +68,10 @@ export default class BudgetingScreen extends React.Component {
                 flexDirection: 'row',
                 height: 10,
                 width: 10,
-                backgroundColor: '#c61aff'
+                backgroundColor: '#c61aff',
+                marginTop: 7
               }}/>
-              <Text>Leisure</Text>
+              <Text> Leisure</Text>
             </View>
             <View  style={{
                 flexDirection: 'row'}}>
@@ -77,9 +80,10 @@ export default class BudgetingScreen extends React.Component {
                 flexDirection: 'row',
                 height: 10,
                 width: 10,
-                backgroundColor: '#d966ff'
+                backgroundColor: '#d966ff',
+                marginTop: 7
               }}/>
-              <Text>Transport</Text>
+              <Text> Transport</Text>
             </View>
             <View   style={{
                 flexDirection: 'row', }}>
@@ -88,9 +92,10 @@ export default class BudgetingScreen extends React.Component {
                 flexDirection: 'row',
                 height: 10,
                 width: 10,
-                backgroundColor: '#ecb3ff'
+                backgroundColor: '#ecb3ff',
+                marginTop: 7
               }}/>
-              <Text>Others</Text>
+              <Text> Others</Text>
             </View>
           </View>
         </View>
@@ -134,7 +139,7 @@ export default class BudgetingScreen extends React.Component {
             />
             </View>
 
-              <Button buttonStyle={{justifyContent: 'center', borderRadius: 5, marginBottom: 5, marginTop : 5  }} title="Set or Update Next Month's Budget" />
+              <Button buttonStyle={{justifyContent: 'center', borderRadius: 5, marginBottom: 5, marginTop : 5  }} title="Set Next Month's Budget" />
 
 <Button buttonStyle={{ justifyContent: 'center', borderRadius: 5}} title="See Past Budgets" />
           </View>

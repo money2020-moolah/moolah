@@ -185,6 +185,12 @@ export default class HomeScreen extends React.Component {
         >
           <View style={styles.dialogContentView}>
             <Text style={{padding: 10}}>Budgeting is the process of creating a plan to spend your money. Creating this plan allows you to determine in advance whether you will have enough money to do the things you need to do or would like to do.</Text>
+            <Image
+              style={{flex:1, width: smallerCardWidth, height: 230, alignSelf: 'center'}}
+              source={require('../assets/images/budget-infographic.png')}
+              resizeMode="contain"
+              elevation={1}
+            />
           </View>
         </PopupDialog>
       </View>
