@@ -5,7 +5,33 @@ export default class LineChartExample extends React.PureComponent {
 
     render() {
 
-        const data = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ]
+         const data = [
+            {
+                key: 1,
+                amount: 50,
+                svg: { fill: '#600080' },
+            },
+            {
+                key: 2,
+                amount: 50,
+                svg: { fill: '#9900cc' }
+            },
+            {
+                key: 3,
+                amount: 40,
+                svg: { fill: '#c61aff' }
+            },
+            {
+                key: 4,
+                amount: 95,
+                svg: { fill: '#d966ff' }
+            },
+            {
+                key: 5,
+                amount: 35,
+                svg: { fill: '#ecb3ff' }
+            }
+        ]
 
         return (
             <LineChart

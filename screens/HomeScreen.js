@@ -11,12 +11,14 @@ import {
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 import  LineChartExample  from '../components/LineChart';
-import { Avatar, Button } from 'react-native-elements';
+import { Avatar, Button, Card } from 'react-native-elements';
 import { CreditCardInput } from 'react-native-credit-card-input';
 import getTransactionHistory from '../apis/yodlee';
+import  PieChartExample  from '../components/PieChart';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
+    title: 'Moolah',
   };
 
   render() {
@@ -26,17 +28,30 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.my_container}>
-          <CreditCardInput onChange={this._onChange} />
-            <MonoText>Welcome Renee!</MonoText>
-            </View>
-            <View>
-            <MonoText>Bank Balance</MonoText>
-            <LineChartExample></LineChartExample>
-            <Button
-            title='Plan this month Budget!'
-             />
-            </View>
+        <View style={{
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'stretch',
+          padding: 5
+         }}>
+          <View style={{height: 250, backgroundColor: 'steelblue', marginBottom: 20}} />
+         </View>
+          <View style={{flexDirection: "row",marginBottom: 20}}>
+          <View style={{flex: 1, height: 80, backgroundColor: 'powderblue'}}>
+            <Text>Allowance</Text>
+            <Text style={{fontSize: 25}}>$150.00</Text>
+          </View>
+          <View style={{flex: 1, height: 80, backgroundColor: 'skyblue'}}>
+            <Text>Balance</Text>
+            <Text style={{fontSize: 25}}>$139.76</Text>
+          </View>
+          <View style={{flex: 1, height: 80, backgroundColor: 'steelblue'}}>
+            <Text>Health</Text>
+            <Text style={{fontSize: 25}}>90.57%</Text>
+          </View>
+        </View>
+        <PieChartExample></PieChartExample>
         </ScrollView>
       </View>
     );
