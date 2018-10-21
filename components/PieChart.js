@@ -10,27 +10,27 @@ export default class PieChartExample extends React.PureComponent {
         {
             key: 1,
             amount: 50,
-            svg: { fill: '#600080' },
+            svg: { fill: '#ff9478' },
         },
         {
             key: 2,
             amount: 50,
-            svg: { fill: '#9900cc' }
+            svg: { fill: '#c5eff7' }
         },
         {
             key: 3,
             amount: 40,
-            svg: { fill: '#c61aff' }
+            svg: { fill: '#7befb2' }
         },
         {
             key: 4,
             amount: 95,
-            svg: { fill: '#d966ff' }
+            svg: { fill: '#fef160' }
         },
         {
             key: 5,
             amount: 35,
-            svg: { fill: '#ecb3ff' }
+            svg: { fill: '#f9bf3b' }
         }
     ]
 
@@ -57,7 +57,7 @@ export default class PieChartExample extends React.PureComponent {
 
     return (
         <PieChart
-            style={{ height: 200 }}
+            style={{ height: 200, width: 200 }}
             valueAccessor={({ item }) => item.amount}
             data={data}
             spacing={0}
