@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 import getTransactionHistory from '../apis/yodlee';
+import constants from '../constants/Colors';
+import { WebBrowser, Icon } from 'expo';
 
 export default class TransactionsScreen extends React.Component {
   constructor(props) {
@@ -22,29 +24,42 @@ export default class TransactionsScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <View style={{flexDirection: "row"}}>
-          <View style={{flex: 1, height: 80, backgroundColor: 'powderblue'}}>
-            <Text>Allowance</Text>
-            <Text style={{fontSize: 25}}>$150.00</Text>
+        <View style={{flexDirection: "row" ,marginBottom: 20, marginTop: 20, justifyContent: 'center'}}>
+          <View style={{flex: 1, paddingLeft: 10}}>
+            <View style={{backgroundColor: '#FFF', padding: 20, marginRight: 10, borderRadius: 5, height: 150}} elevation={5}>
+              <Text style={{color: constants.secondary, paddingTop: 40}}>Balance</Text>
+              <Text style={{fontSize: 25, color: constants.primary}}>$150.00</Text>
+            </View>
           </View>
-          <View style={{flex: 1, height: 80, backgroundColor: 'skyblue'}}>
-            <Text>Balance</Text>
-            <Text style={{fontSize: 25}}>$139.76</Text>
-          </View>
-          <View style={{flex: 1, height: 80, backgroundColor: 'steelblue'}}>
-            <Text>Health</Text>
-            <Text style={{fontSize: 25}}>90.57%</Text>
+          <View style={{flex: 1, height: 95}}>
+            <View style={{backgroundColor: '#FFF', padding: 20, marginRight: 10, borderRadius: 5}} elevation={5}>
+              <Text style={{color: constants.secondary}}>Allowance</Text>
+              <Text>
+                <Text>$150.00 </Text>
+                <Icon.Ionicons
+                  name="md-arrow-dropup"
+                  size={26}
+                  color="#47a454"
+                />
+              </Text>
+              <Text style={{color: constants.secondary, marginTop: 14}}>Health</Text><Text style={{color:"#47a454"}}>90.67%</Text>
+            </View>
           </View>
         </View>
         {
             this.state.transactions.map((transaction, index) => {
               return (
-                <Card key={index}>
-                  <View>
-                    <Text>{transaction.category}</Text>
-                    <Text style={{textAlign: 'right'}}>{transaction.baseType == 'CREDIT' ? '+' : '-'} ${transaction.amount.amount}</Text>
+                <View key={index} style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10, flexDirection: "row", borderLeftColor: transaction.baseType == 'CREDIT' ? '#7befb2' : '#f03434', borderLeftWidth: 10}} elevation={5}>
+                  <View style={{flexDirection: "row", justifyContent: "space-around"}}>
+                    <View>
+                      <Text style={{fontWeight: "bold"}}>{transaction.description.simple}</Text>
+                      <Text>{transaction.category}</Text>
+                    </View>
+                    <View>
+                      <Text style={{color: transaction.baseType == 'CREDIT' ? '#7befb2' : '#f03434' }}>{transaction.baseType == 'CREDIT' ? '+' : '-'} ${transaction.amount.amount}</Text>
+                    </View>
                   </View>
-                </Card>
+                </View>
               );
             })
          }

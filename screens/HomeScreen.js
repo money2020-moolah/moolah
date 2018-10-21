@@ -86,10 +86,10 @@ export default class HomeScreen extends React.Component {
           <View style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10}} elevation={5}>
             <View style={{flexDirection: 'row', justifyContent: "space-between"}}>
               <Text style={{color: constants.secondary, fontSize: 20, marginBottom: 20}}>Budget For Oct</Text>
-              <View
+              <TouchableOpacity
                 style={{backgroundColor: constants.secondary, borderRadius: 90, height: 21, width: 21}}
                 onPress={this.showScaleAnimationDialog}
-              ><Text style={{color: "white", marginLeft: 6}}>?</Text></View>
+              ><Text style={{color: "white", marginLeft: 6}}>?</Text></TouchableOpacity>
 
             </View>
 
@@ -98,13 +98,13 @@ export default class HomeScreen extends React.Component {
 
               <View style={{marginTop: 60}}>
                 <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-                  <View style={{height: 10, width: 10, backgroundColor: "#600080", marginTop: 6}}></View><Text> Savings</Text>
+                  <View style={{height: 10, width: 10, backgroundColor: "#ff9478", marginTop: 6}}></View><Text> Savings</Text>
                 </View>
                 <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-                  <View style={{height: 10, width: 10, backgroundColor: "#9900cc", marginTop: 6}}></View><Text> Leisure</Text>
+                  <View style={{height: 10, width: 10, backgroundColor: "#c5eff7", marginTop: 6}}></View><Text> Leisure</Text>
                 </View>
                 <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-                  <View style={{height: 10, width: 10, backgroundColor: "#c61aff", marginTop: 6}}></View><Text> Food</Text>
+                  <View style={{height: 10, width: 10, backgroundColor: "#7befb2", marginTop: 6}}></View><Text> Food</Text>
                 </View>
               </View>
               
@@ -112,10 +112,10 @@ export default class HomeScreen extends React.Component {
               
               <View style={{marginTop: 70}}>
                 <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-                  <View style={{height: 10, width: 10, backgroundColor: "#d966ff", marginTop: 6}}></View><Text> Transport</Text>
+                  <View style={{height: 10, width: 10, backgroundColor: "#fef160", marginTop: 6}}></View><Text> Transport</Text>
                 </View>
                 <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-                  <View style={{height: 10, width: 10, backgroundColor: "#ecb3ff", marginTop: 6}}></View><Text> Others</Text>
+                  <View style={{height: 10, width: 10, backgroundColor: "#f9bf3b", marginTop: 6}}></View><Text> Others</Text>
                 </View>
               </View>
 
@@ -126,10 +126,10 @@ export default class HomeScreen extends React.Component {
           <View style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10}} elevation={5}>
           <View style={{flexDirection: 'row', justifyContent: "space-between"}}>
               <Text style={{color: constants.secondary, fontSize: 20, marginBottom: 20}}>Current Spending</Text>
-              <View
+              <TouchableOpacity
                 style={{backgroundColor: constants.secondary, borderRadius: 90, height: 21, width: 21}}
                 onPress={this.showScaleAnimationDialog}
-              ><Text style={{color: "white", marginLeft: 6}}>?</Text></View>
+              ><Text style={{color: "white", marginLeft: 6}}>?</Text></TouchableOpacity>
 
             </View>
             <Image
@@ -143,10 +143,10 @@ export default class HomeScreen extends React.Component {
           <View style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10}} elevation={5}>
           <View style={{flexDirection: 'row', justifyContent: "space-between"}}>
               <Text style={{color: constants.secondary, fontSize: 20, marginBottom: 20}}>Balance and Allowance History</Text>
-              <View
+              <TouchableOpacity
                 style={{backgroundColor: constants.secondary, borderRadius: 90, height: 21, width: 21}}
                 onPress={this.showScaleAnimationDialog}
-              ><Text style={{color: "white", marginLeft: 6}}>?</Text></View>
+              ><Text style={{color: "white", marginLeft: 6}}>?</Text></TouchableOpacity>
 
             </View>
             <Image
@@ -160,10 +160,10 @@ export default class HomeScreen extends React.Component {
           <View style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10}} elevation={5}>
           <View style={{flexDirection: 'row', justifyContent: "space-between"}}>
               <Text style={{color: constants.secondary, fontSize: 20, marginBottom: 20}}>Factors Affecting Credit</Text>
-              <View
+              <TouchableOpacity
                 style={{backgroundColor: constants.secondary, borderRadius: 90, height: 21, width: 21}}
                 onPress={this.showScaleAnimationDialog}
-              ><Text style={{color: "white", marginLeft: 6}}>?</Text></View>
+              ><Text style={{color: "white", marginLeft: 6}}>?</Text></TouchableOpacity>
 
             </View>
             <Image
