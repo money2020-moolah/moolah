@@ -9,17 +9,17 @@ export default class LineChartExample extends React.PureComponent {
             {
                 key: 1,
                 amount: 50,
-                svg: { fill: '#600080' },
+                svg: { fill: '#ff9478' },
             },
             {
                 key: 2,
                 amount: 50,
-                svg: { fill: '#9900cc' }
+                svg: { fill: '#c5eff7' }
             },
             {
                 key: 3,
                 amount: 40,
-                svg: { fill: '#c61aff' }
+                svg: { fill: '#7befb2' }
             },
             {
                 key: 4,

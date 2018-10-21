@@ -19,6 +19,7 @@
     "react-native": "^0.55.4",
     "react-native-credit-card-input": "^0.4.1",
     "react-native-elements": "^0.19.1",
+    "react-native-popup-dialog": "^0.15.1",
     "react-native-svg-charts": "^5.2.0",
     "react-native-svg-uri": "^1.2.3",
     "react-navigation": "^2.16.0"
