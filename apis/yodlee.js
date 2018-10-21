@@ -1,4 +1,4 @@
-import { COBRAND_LOGIN, COBRAND_PASSWORD, USER_LOGIN, USER_PASSWORD } from 'react-native-dotenv';
+import { COBRAND_LOGIN, COBRAND_PASSWORD, USER_LOGIN, USER_PASSWORD } from '../env';
 
 export default function getTransactionHistory() {
   /**
