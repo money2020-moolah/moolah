@@ -16,14 +16,14 @@ export default class SettingsScreen extends React.Component {
 
       <ScrollView style={styles.container}>
 
-       <View style={{height: 250, borderColor: 'green', borderRadius: 5, borderWidth: 1,  marginBottom: 20}} >
+       <View style={styles.success} elevation={8}>
         <Text>Good Job!</Text>
        </View>
-       <View style={{height: 250, borderColor: 'red', borderRadius: 5, borderWidth: 1, marginBottom: 20}} >
-       <Text>Oh no!</Text>
+       <View style={styles.failure} elevation={8}>
+        <Text>Oh no!</Text>
        </View>
-       <View style={{height: 250, borderColor:  'green', borderRadius: 5, borderWidth: 1, marginBottom: 20}} >
-       <Text>Good Job!</Text>
+       <View style={styles.success} elevation={8}>
+        <Text>Good Job!</Text>
        </View>
 
      
@@ -45,4 +45,16 @@ const styles = StyleSheet.create({
     padding: 5,
     backgroundColor: '#fff',
   },
+  success: {
+    height: 250,
+    backgroundColor: '#29f1c3',
+    borderRadius: 5,
+    marginBottom: 20
+  },
+  failure: {
+    height: 250,
+    backgroundColor: '#ff8989',
+    borderRadius: 5,
+    marginBottom: 20
+  }
 });
