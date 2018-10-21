@@ -57,7 +57,7 @@ export default class PieChartExample extends React.PureComponent {
 
     return (
         <PieChart
-            style={{ height: 200 }}
+            style={{ height: 200, width: 200 }}
             valueAccessor={({ item }) => item.amount}
             data={data}
             spacing={0}

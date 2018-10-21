@@ -9,7 +9,7 @@ import {
   View,
   Dimensions,
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import { WebBrowser, Icon } from 'expo';
 import { MonoText } from '../components/StyledText';
 import  LineChartExample  from '../components/LineChart';
 import { Avatar, Button, Card } from 'react-native-elements';
@@ -17,11 +17,18 @@ import { CreditCardInput } from 'react-native-credit-card-input';
 import getTransactionHistory from '../apis/yodlee';
 import  PieChartExample  from '../components/PieChart';
 import constants from '../constants/Colors';
+import PopupDialog, { ScaleAnimation, DialogTitle, DialogButton } from 'react-native-popup-dialog';
+
+const scaleAnimation = new ScaleAnimation();
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Moolah',
   };
+
+  showScaleAnimationDialog = () => {
+    this.scaleAnimationDialog.show();
+  }
 
   render() {
     getTransactionHistory().then((response) => {
@@ -30,9 +37,11 @@ export default class HomeScreen extends React.Component {
 
     const dimensions = Dimensions.get('window');
     const cardWidth = dimensions.width;
+    const smallerCardWidth = dimensions.width - 50;
 
     return (
       <View style={styles.container}>
+
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <View style={{
           flex: 1,
@@ -48,23 +57,136 @@ export default class HomeScreen extends React.Component {
             resizeMode="contain"
             elevation={1}
           />
-         </View>
+          </View>
+
           <View style={{flexDirection: "row" ,marginBottom: 20, marginTop: 20, justifyContent: 'center'}}>
-            <View style={{flex: 1, height: 80, paddingLeft: 20}}>
-              <Text>Allowance</Text>
-              <Text style={{fontSize: 25}}>$150.00</Text>
+            <View style={{flex: 1, paddingLeft: 10}}>
+              <View style={{backgroundColor: '#FFF', padding: 20, marginRight: 10, borderRadius: 5, height: 150}} elevation={5}>
+                <Text style={{color: constants.secondary, paddingTop: 40}}>Balance</Text>
+                <Text style={{fontSize: 25, color: constants.primary}}>$150.00</Text>
+              </View>
             </View>
-            <View style={{flex: 1, height: 80, paddingLeft: 10}}>
-              <Text>Balance</Text>
-              <Text style={{fontSize: 25}}>$139.76</Text>
-            </View>
-            <View style={{flex: 1, height: 80}}>
-              <Text>Health</Text>
-              <Text style={{fontSize: 25}}>90.57%</Text>
+            <View style={{flex: 1, height: 95}}>
+              <View style={{backgroundColor: '#FFF', padding: 20, marginRight: 10, borderRadius: 5}} elevation={5}>
+                
+                <Text style={{color: constants.secondary}}>Allowance</Text>
+                <Text>
+                  <Text>$150.00 </Text>
+                  <Icon.Ionicons
+                    name="md-arrow-dropup"
+                    size={26}
+                    color="#47a454"
+                  />
+                </Text>
+                <Text style={{color: constants.secondary, marginTop: 14}}>Health</Text><Text style={{color:"#47a454"}}>90.67%</Text>
+              </View>
             </View>
           </View>
-        <PieChartExample></PieChartExample>
+
+          <View style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10}} elevation={5}>
+            <View style={{flexDirection: 'row', justifyContent: "space-between"}}>
+              <Text style={{color: constants.secondary, fontSize: 20, marginBottom: 20}}>Budget For Oct</Text>
+              <View
+                style={{backgroundColor: constants.secondary, borderRadius: 90, height: 21, width: 21}}
+                onPress={this.showScaleAnimationDialog}
+              ><Text style={{color: "white", marginLeft: 6}}>?</Text></View>
+
+            </View>
+
+            
+            <View style={{flexDirection:'row'}}>
+
+              <View style={{marginTop: 60}}>
+                <View style={{flexDirection:'row', flexWrap:'wrap'}}>
+                  <View style={{height: 10, width: 10, backgroundColor: "#600080", marginTop: 6}}></View><Text> Savings</Text>
+                </View>
+                <View style={{flexDirection:'row', flexWrap:'wrap'}}>
+                  <View style={{height: 10, width: 10, backgroundColor: "#9900cc", marginTop: 6}}></View><Text> Leisure</Text>
+                </View>
+                <View style={{flexDirection:'row', flexWrap:'wrap'}}>
+                  <View style={{height: 10, width: 10, backgroundColor: "#c61aff", marginTop: 6}}></View><Text> Food</Text>
+                </View>
+              </View>
+              
+              <PieChartExample></PieChartExample>
+              
+              <View style={{marginTop: 70}}>
+                <View style={{flexDirection:'row', flexWrap:'wrap'}}>
+                  <View style={{height: 10, width: 10, backgroundColor: "#d966ff", marginTop: 6}}></View><Text> Transport</Text>
+                </View>
+                <View style={{flexDirection:'row', flexWrap:'wrap'}}>
+                  <View style={{height: 10, width: 10, backgroundColor: "#ecb3ff", marginTop: 6}}></View><Text> Others</Text>
+                </View>
+              </View>
+
+            </View>
+
+          </View>
+
+          <View style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10}} elevation={5}>
+          <View style={{flexDirection: 'row', justifyContent: "space-between"}}>
+              <Text style={{color: constants.secondary, fontSize: 20, marginBottom: 20}}>Current Spending</Text>
+              <View
+                style={{backgroundColor: constants.secondary, borderRadius: 90, height: 21, width: 21}}
+                onPress={this.showScaleAnimationDialog}
+              ><Text style={{color: "white", marginLeft: 6}}>?</Text></View>
+
+            </View>
+            <Image
+              style={{flex:1, width: smallerCardWidth, height: 230, alignSelf: 'center'}}
+              source={require('../assets/images/current-spending.png')}
+              resizeMode="contain"
+              elevation={1}
+            />
+          </View>
+
+          <View style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10}} elevation={5}>
+          <View style={{flexDirection: 'row', justifyContent: "space-between"}}>
+              <Text style={{color: constants.secondary, fontSize: 20, marginBottom: 20}}>Balance and Allowance History</Text>
+              <View
+                style={{backgroundColor: constants.secondary, borderRadius: 90, height: 21, width: 21}}
+                onPress={this.showScaleAnimationDialog}
+              ><Text style={{color: "white", marginLeft: 6}}>?</Text></View>
+
+            </View>
+            <Image
+              style={{flex:1, width: smallerCardWidth, height: 230, alignSelf: 'center'}}
+              source={require('../assets/images/balance-history.png')}
+              resizeMode="contain"
+              elevation={1}
+            />
+          </View>
+
+          <View style={{backgroundColor: '#FFF', padding: 20, margin: 10, borderRadius: 10}} elevation={5}>
+          <View style={{flexDirection: 'row', justifyContent: "space-between"}}>
+              <Text style={{color: constants.secondary, fontSize: 20, marginBottom: 20}}>Factors Affecting Credit</Text>
+              <View
+                style={{backgroundColor: constants.secondary, borderRadius: 90, height: 21, width: 21}}
+                onPress={this.showScaleAnimationDialog}
+              ><Text style={{color: "white", marginLeft: 6}}>?</Text></View>
+
+            </View>
+            <Image
+              style={{flex:1, width: smallerCardWidth, height: 230, alignSelf: 'center'}}
+              source={require('../assets/images/credit-factors.png')}
+              resizeMode="contain"
+              elevation={1}
+            />
+          </View>
+       
         </ScrollView>
+
+        <PopupDialog
+          dialogTitle={<DialogTitle title="Budgeting" />}
+          ref={(popupDialog) => {
+            this.scaleAnimationDialog = popupDialog;
+          }}
+          dialogAnimation={scaleAnimation}
+        >
+          <View style={styles.dialogContentView}>
+            <Text style={{padding: 10}}>Budgeting is the process of creating a plan to spend your money. Creating this plan allows you to determine in advance whether you will have enough money to do the things you need to do or would like to do.</Text>
+          </View>
+        </PopupDialog>
       </View>
     );
   }
@@ -73,7 +195,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#eee",
   },
 
   my_container:{
