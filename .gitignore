@@ -1,2 +1,5 @@
 node_modules/**/*
 .expo/**/*
+
+# All my credentials in here!
+.env

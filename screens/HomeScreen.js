@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Image,
   Platform,
@@ -10,20 +9,20 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
 import { MonoText } from '../components/StyledText';
-
 import  LineChartExample  from '../components/LineChart';
-
 import { Avatar, Button } from 'react-native-elements';
-
-import { CreditCardInput } from "react-native-credit-card-input";
+import { CreditCardInput } from 'react-native-credit-card-input';
+import getTransactionHistory from '../apis/yodlee';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
   };
 
   render() {
+    getTransactionHistory().then((response) => {
+      console.log(response);
+    });
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
