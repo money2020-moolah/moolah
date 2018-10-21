@@ -4,7 +4,7 @@ import { ScrollView, StyleSheet, Text, View} from 'react-native';
 
 import { Card, ListItem, Button } from 'react-native-elements';
 
-export default class SettingsScreen extends React.Component {
+export default class AdviceScreen extends React.Component {
   static navigationOptions = {
     title: 'Advice',
   };
